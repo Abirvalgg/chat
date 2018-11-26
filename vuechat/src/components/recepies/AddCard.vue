@@ -12,7 +12,7 @@
                 <i class="material-icons delete" @click="deleteIng(p)">delete</i>
             </div>
             <div class="field add-task">
-                <label for="add-task"> Add point: </label>
+                <label for="add-task"> Add pointttttt: </label>
                 <input type="text" name="add-task" @keydown.tab.prevent="addIng" v-model="another">
             </div>
             <div class="field center-align">
