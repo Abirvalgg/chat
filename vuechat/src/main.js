@@ -3,13 +3,28 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueChatScroll from 'vue-chat-scroll'
+import firebase from 'firebase'
+
+Vue.use(VueChatScroll)
 
 Vue.config.productionTip = false
 
+let app = null;
+
+// wait for firebase auth to init before creating the app
+firebase.auth().onAuthStateChanged(() => {
+  
+
+  // init app if not already created
+  if (!app){
+    new Vue({
+      el: '#app',
+      router,
+      components: { App },
+      template: '<App/>'
+    })
+  }
+}) 
+
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-})

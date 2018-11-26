@@ -16,6 +16,7 @@
             <div class="card-action">
                 <NewMessage :name="name" />
             </div>
+            
         <!-- </div>
         </div> -->
         </div>
@@ -28,7 +29,7 @@ import db from '@/firebase/init'
 import moment from 'moment'
 
 export default {
-    name: 'Chat',
+    name: 'Chat2',
     props: ['name'],
     components: {
         NewMessage
@@ -41,7 +42,7 @@ export default {
         }
     },
     created () {
-        let ref = db.collection('messages').orderBy('timestamp')
+        let ref = db.collection('msgs').orderBy('timestamp')
 
         ref.onSnapshot(snapshot => {
             snapshot.docChanges().forEach(change => {
@@ -63,7 +64,7 @@ export default {
 <style>
 .chat {
     min-width: 367.5px;
-    max-width: 400px;
+    max-width: 600px;
 
 }
 .chat h2{
@@ -78,7 +79,7 @@ export default {
     font-size: 0.8em;
 }
 .messages {
-    max-height: 300px;
+    max-height: 400px;
     overflow: auto;
 }
 .messages::-webkit-scrollbar {

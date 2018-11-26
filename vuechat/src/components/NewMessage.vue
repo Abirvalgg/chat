@@ -10,6 +10,8 @@
 
 <script>
 import db from '@/firebase/init'
+import firebase from 'firebase'
+
 export default {
     name: 'NewMessage',
     props: ['name'],
@@ -22,7 +24,7 @@ export default {
     methods: {
         addMessage () {
             if (this.newMessage) {
-                db.collection('messages').add({
+                db.collection('msgs').add({
                     content: this.newMessage,
                     name: this.name,
                     timestamp: Date.now()
